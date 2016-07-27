@@ -1,0 +1,15 @@
+{
+  "name": "s-p-s-snippets",
+  "version": "0.1.0",
+  "description": "Snippets for Spatial Suite xml-configuration",
+  "keywords": [
+    "xml",
+    "snippets",
+    "Spatial Suite"
+  ],
+  "repository": "https://github.com/atom/s-p-s-snippets",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}

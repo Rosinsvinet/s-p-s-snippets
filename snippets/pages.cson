@@ -1,0 +1,15 @@
+
+'.text.xml':
+   'Page: Ds exec cmd':
+      'prefix': 'execcmd'
+      'body': '''
+      <page name="$1" contenttype="text/xml">
+         <data handler="datasource" operation="execute-command">
+            <url-parameters>
+               <url-parameter name="datasource" value="$2"/>
+               <url-parameter name="command" value="$3"/>
+               <url-parameter name="$4">$5</url-parameter>
+               $6
+            </url-parameters>
+         </data>
+      </page>'''

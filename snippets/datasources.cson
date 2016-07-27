@@ -1,0 +1,85 @@
+
+'.text.xml':
+   'WFS Endpoint':
+      'prefix': 'wfsep'
+      'body': '''
+      <endpoint name="$1" endpointtype="wfs" displayname="$1">
+         <service>$2</service>
+         <kvpbboxencoding>xml</kvpbboxencoding>
+         <charsetname>UTF-8</charsetname>
+      </endpoint>$3'''
+
+   'WFS Datasource':
+      'prefix': 'wfsds'
+      'body': '''
+      <datasource name="$1" endpoint="$2" displayname="$1">
+         <wfs geometrycolumn="Shape">
+            <typename>$3</typename>
+         </wfs>
+      </datasource>$4'''
+
+   'WMS Endpoint':
+      'prefix': 'wmsep'
+      'body': '''
+      <endpoint name="$1" endpointtype="wms" displayname="$1">
+         <service>$2</service>
+      </endpoint>$3'''
+
+   'WMS Datasource':
+      'prefix': 'wmsds'
+      'body': '''
+      <datasource name="$1" endpoint="$2" displayname="$1">
+         <wms>
+            <layers>$3</layers>
+         </wms>
+      </datasource>$4'''
+
+   'DB Endpoint':
+      'prefix': 'dbep'
+      'body': '''
+      <endpoint name="$1" endpointtype="$2" displayname="$1">
+         <connect>$3</connect>
+         <user>$4</user>
+         <pwd>$5</pwd>
+         <srid>25832</srid>
+         <table schema="$6" geometrycolumn="wkb_geometry" pkcolumn="ogc_fid" />
+         <mapserver>
+            <processing>CLOSE_CONNECTION=DEFER</processing>
+         </mapserver>
+      </endpoint>$7'''
+
+   'DB Datasource':
+      'prefix': 'dbds'
+      'body': '''
+      <datasource name="$1" endpoint="$2" displayname="$1">
+         <table name="$3"/>
+      </datasource>$4'''
+
+   'Sql command for dbds':
+      'prefix': 'sqlcmd'
+      'body': '<sql command="read-$1">$2</sql>$3'
+
+   'Datasource expression':
+     'prefix': 'expr'
+     'body': '<expression>$1</expression>$2'
+
+   'WS Endpoint':
+      'prefix': 'wsep'
+      'body': '''
+      <endpoint name="$1" endpointtype="ws">
+         <service>$2</service>
+         <authentication>
+            <user>$3</user>
+            <password>$4</password>
+         # </authentication>
+      </endpoint>$5'''
+
+   'WS Datasource':
+      'prefix': 'wsds'
+      'body': '''
+      <datasource name="$1" endpoint="$2" displayname="$1">
+         <command name="$3" httpmethod="post">
+            <postxml>$4</postxml>
+            <serviceextension>$5</serviceextension>
+         </command>
+      </datasource>$6'''

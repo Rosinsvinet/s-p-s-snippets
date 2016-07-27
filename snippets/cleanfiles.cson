@@ -1,0 +1,27 @@
+'.text.xml':
+   'Clean deploy.xml':
+      'prefix': 'deploy'
+      'body': '''
+      <?xml version="1.0" encoding="UTF-8"?>
+      <deploy>
+         $1
+      </deploy>
+      '''
+
+   'Clean datasources.xml':
+      'prefix': 'datasources'
+      'body': '''
+      <?xml version="1.0" encoding="ISO-8859-1"?>
+      <datasources>
+         $1
+      </datasources>
+      '''
+
+   'Clean pages.xml':
+      'prefix': 'pages'
+      'body': '''
+      <?xml version="1.0" encoding="ISO-8859-1"?>
+      <pages>
+         $1
+      </pages>
+      '''
