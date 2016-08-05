@@ -1,11 +1,10 @@
-
 '.text.xml':
    'WFS Endpoint':
       'prefix': 'wfsep'
       'body': '''
       <endpoint name="$1" endpointtype="wfs" displayname="$1">
          <service>$2</service>
-         <kvpbboxencoding>xml</kvpbboxencoding>
+         <kvpbboxencoding>bbox</kvpbboxencoding>
          <charsetname>UTF-8</charsetname>
       </endpoint>$3'''
 
@@ -17,6 +16,20 @@
             <typename>$3</typename>
          </wfs>
       </datasource>$4'''
+
+   'WFS command':
+      'prefix': 'wfscmd'
+      'body': '''
+<command name="read-$1" type="get">
+	<parameters>
+		<param name="filter"><![CDATA[
+         <ogc:PropertyIsEqualTo>
+         <ogc:PropertyName>$2</ogc:PropertyName>
+         <ogc:Literal>[$2]</ogc:Literal>
+         </ogc:PropertyIsEqualTo>]]>
+      </param>
+	</parameters>
+</command>$3'''
 
    'WMS Endpoint':
       'prefix': 'wmsep'
@@ -63,6 +76,10 @@
      'prefix': 'expr'
      'body': '<expression>$1</expression>$2'
 
+   'Datasource debug':
+      'prefix': 'debug'
+      'body': '<debug>true</debug>$1'
+
    'WS Endpoint':
       'prefix': 'wsep'
       'body': '''
@@ -71,7 +88,7 @@
          <authentication>
             <user>$3</user>
             <password>$4</password>
-         # </authentication>
+         </authentication>
       </endpoint>$5'''
 
    'WS Datasource':

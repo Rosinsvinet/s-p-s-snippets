@@ -1,0 +1,10 @@
+'.text.xml':
+   'include':
+      'prefix': 'inc'
+      'body': '''
+      <include onlychildnodes="true" src="$1"/>$2
+      '''
+
+   'CDATA-tag':
+      'prefix': 'cdata'
+      'body': '<![CDATA[$1]]>$2'
